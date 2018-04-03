@@ -10,6 +10,8 @@
  * @return {number[]}
  */
 const preorderTraversal = function(root) {
+  if (Object.keys(root).length === 0) return [];
+
   const stack = [];
   stack.push(root);
   const result = [];
@@ -24,13 +26,3 @@ const preorderTraversal = function(root) {
 };
 
 module.exports = preorderTraversal;
-
-// preorderTraversal({
-//   val: 1,
-//   right: { val: 3, right: null, left: null },
-//   left: {
-//     val: 4,
-//     right: null,
-//     left: { val: 2, right: null, left: null }
-//   }
-// });
