@@ -11,7 +11,7 @@
  * @return {number[]}
  */
 const inorderTraversal = root => {
-  if (Object.keys(root).length === 0) return [];
+  if (!root || Object.keys(root).length === 0) return [];
 
   const result = [];
   const stack = [];
