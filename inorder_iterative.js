@@ -10,33 +10,29 @@
  * @return {number[]}
  */
 var inorderTraversal = function(root) {
-  const result = [];
-  const stack = [];
-  stack.push(root.left);
+  if (Object.keys(root).length < 1) return [];
+
+  const stack = traverseLeft(root);
   stack.push(root.val);
-
-  while (stack.length > 0) {
-    const node = stack.shift();
-    //console.log(node);
-    if (node.val) result.push(node.val);
-    //else result.push(node);
-
-    if (node && node.right) stack.unshift(node.right);
-    //if (node && node.val) stack.unshift(node.val);
-    if (node && node.left) stack.unshift(node.left);
-
-    console.log(stack);
-  }
-
-  console.log(result);
+  return stack.concat(traverseRight(root));
 };
 
-inorderTraversal({
-  val: 1,
-  right: { val: 3, right: null, left: null },
-  left: {
-    val: 4,
-    right: null,
-    left: { val: 2, right: null, left: null }
+const traverseLeft = root => {
+  const stack = [];
+  while (root.left) {
+    stack.unshift(root.left.val);
+    root = root.left;
   }
-});
+  return stack;
+};
+
+const traverseRight = root => {
+  const stack = [];
+  while (root.right) {
+    stack.unshift(root.right.val);
+    root = root.right;
+  }
+  return stack;
+};
+
+module.exports = inorderTraversal;
