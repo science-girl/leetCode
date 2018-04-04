@@ -18,6 +18,10 @@ test('traverses a tree with no nodes', () => {
   expect(inorder({})).toEqual([]);
 });
 
+test('traverses a tree with no argument', () => {
+  expect(inorder()).toEqual([]);
+});
+
 test('traverses a tree with one node', () => {
   expect(
     inorder({
