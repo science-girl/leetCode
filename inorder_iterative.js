@@ -5,34 +5,30 @@
  *     this.left = this.right = null;
  * }
  */
+
 /**
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
-  if (Object.keys(root).length < 1) return [];
+const inorderTraversal = root => {
+  if (Object.keys(root).length === 0) return [];
 
-  const stack = traverseLeft(root);
-  stack.push(root.val);
-  return stack.concat(traverseRight(root));
-};
-
-const traverseLeft = root => {
+  const result = [];
   const stack = [];
-  while (root.left) {
-    stack.unshift(root.left.val);
-    root = root.left;
-  }
-  return stack;
-};
+  stack.push(root);
 
-const traverseRight = root => {
-  const stack = [];
-  while (root.right) {
-    stack.unshift(root.right.val);
-    root = root.right;
+  while (stack.length > 0) {
+    const node = stack.shift();
+    if (typeof node === 'number') {
+      result.push(node);
+    } else {
+      if (node && node.right) stack.unshift(node.right);
+      if (node && node.val) stack.unshift(node.val);
+
+      if (node && node.left) stack.unshift(node.left);
+    }
   }
-  return stack;
+  return result;
 };
 
 module.exports = inorderTraversal;
