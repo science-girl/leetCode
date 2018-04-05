@@ -16,6 +16,18 @@ const postorderTraversal = root => {
   const result = [];
   const stack = [];
   stack.push(root);
+
+  while (stack.length > 0) {
+    const node = stack.shift();
+    if (typeof node === 'number') {
+      result.push(node);
+    } else {
+      if (node && node.val) stack.unshift(node.val);
+      if (node && node.right) stack.unshift(node.right);
+      if (node && node.left) stack.unshift(node.left);
+    }
+  }
+  return result;
 };
 
 module.exports = postorderTraversal;
