@@ -9,7 +9,7 @@ test('pass no arguments', () => {
 });
 
 test('pass with array and no val', () => {
-  expect(removeElement([1, 2, 2, 1])).toEqual([]);
+  expect(removeElement([1, 2, 2, 1])).toEqual([1, 2, 2, 1]);
 });
 
 test('array with val as first index', () => {
@@ -22,4 +22,8 @@ test('array with val (0) not in the array', () => {
 
 test('array with val not in the array', () => {
   expect(removeElement([1, 2, 2, 1], 3)).toEqual([1, 2, 2, 1]);
+});
+
+test('array with array of all val', () => {
+  expect(removeElement([2, 2, 2, 2], 2)).toEqual([]);
 });
