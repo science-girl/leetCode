@@ -27,3 +27,7 @@ test('array with val not in the array', () => {
 test('array with array of all val', () => {
   expect(removeElement([2, 2, 2, 2], 2)).toEqual([]);
 });
+
+test('array with val as last element', () => {
+  expect(removeElement([3, 1, 4, 2], 2)).toEqual([3, 1, 4]);
+});
