@@ -21,9 +21,13 @@ test('array with all duplicates', () => {
 });
 
 test('array with multiple duplicates', () => {
-  expect(removeDuplicates([1, 2, 2, 1])).toEqual(2);
+  expect(removeDuplicates([1, 2, 2])).toEqual(2);
 });
 
 test('array with one duplicate', () => {
   expect(removeDuplicates([1, 2, 2, 7])).toEqual(3);
+});
+
+test('array with one duplicate', () => {
+  expect(removeDuplicates([1, 1, 2])).toEqual(2);
 });
