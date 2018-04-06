@@ -15,7 +15,7 @@ test('traverses a tree with one node', () => {
       right: null,
       left: null
     })
-  ).toEqual([1]);
+  ).toEqual([[1]]);
 });
 
 test('traverses a tree with multiple left nodes', () => {
@@ -29,7 +29,7 @@ test('traverses a tree with multiple left nodes', () => {
         left: { val: 2, right: null, left: null }
       }
     })
-  ).toEqual([1, 4, 3, 2]);
+  ).toEqual([[1], [4, 3], [2]]);
 });
 
 test('traverses a tree with multiple left and right nodes', () => {
@@ -47,5 +47,5 @@ test('traverses a tree with multiple left and right nodes', () => {
         left: { val: 2, right: null, left: null }
       }
     })
-  ).toEqual([1, 4, 3, 2, 5, 6]);
+  ).toEqual([[1], [4, 3], [2, 5, 6]]);
 });
