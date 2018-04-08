@@ -23,3 +23,11 @@ test('array with all zeroes', () => {
 test('array with all > 1 zero', () => {
   expect(moveZeroes([0, 2, 3, 4, 0])).toEqual([2, 3, 4, 0, 0]);
 });
+
+test('array with zeroes already suffixed', () => {
+  expect(moveZeroes([1, 2, 3, 4, 0, 0, 0])).toEqual([1, 2, 3, 4, 0, 0, 0]);
+});
+
+test('array with > 1 zeroes in middle', () => {
+  expect(moveZeroes([1, 2, 0, 0, 0, 4, 5])).toEqual([1, 2, 4, 5, 0, 0, 0]);
+});
