@@ -31,10 +31,7 @@ const moveZeroes = nums => {
       pointer++;
     }
   }
-  console.log(nums);
   return nums;
 };
-
-moveZeroes([0, 1, 2, 3, 4]);
 
 module.exports = moveZeroes;
