@@ -4,7 +4,7 @@
  * @return {number[]}
  */
 const twoSum = (nums, target) => {
-  if (!nums || target < 0 || nums.length === 0) return [];
+  if (!nums || nums.length === 0) return [];
 
   for (let i = 0; i < nums.length; i++) {
     for (let j = i; j < nums.length; j++) {

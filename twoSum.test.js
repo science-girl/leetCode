@@ -19,3 +19,7 @@ test('array values not sequential meeting target value', () => {
 test('array value is two distinct values to get target', () => {
   expect(twoSum([3, 2, 4], 6)).toEqual([1, 2]);
 });
+
+test('array values and target can be negative', () => {
+  expect(twoSum([-3, -2, -4], -6)).toEqual([1, 2]);
+});
