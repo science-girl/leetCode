@@ -4,16 +4,14 @@
  * @return {number}
  */
 const removeElement = (nums, val) => {
-  if (!nums || nums.length === 0) return [];
+  if (!nums || nums.length === 0) return 0;
 
   const numsLength = nums.length;
   for (let i = 0; i < numsLength; i++) {
     const indexOfVal = nums.indexOf(val);
     if (indexOfVal > -1) nums.splice(indexOfVal, 1);
   }
-  return nums;
+  return nums.length;
 };
-
-//removeElement([2, 2, 2, 2], 2);
 
 module.exports = removeElement;
