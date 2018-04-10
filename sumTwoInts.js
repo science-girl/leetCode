@@ -38,7 +38,7 @@ const getSum = (a, b) => {
       ? addBits(aBin, bBin).reverse()
       : addBits(bBin, aBin).reverse();
 
-  return parseInt(sum.join(''), 2).toString(10);
+  return new Number(parseInt(sum.join(''), 2).toString(10));
 };
 
 module.exports = getSum;
