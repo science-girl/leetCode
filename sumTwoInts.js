@@ -21,7 +21,9 @@ const addBits = (a, b) => {
  * @return {number}
  */
 const getSum = (a, b) => {
-  if (!a || !b) return 0;
+  if (a === undefined || b === undefined || a < 0 || b < 0) return 0;
+  if (a === 0 && b !== 0) return b;
+  if (b === 0 && a !== 0) return a;
 
   // convert numbers to binary arrays
   const aBin = parseInt(a.toString(), 10)
