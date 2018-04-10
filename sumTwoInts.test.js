@@ -20,8 +20,8 @@ test('integers of different binary lengths', () => {
   expect(getSum(100, 1)).toEqual(101);
 });
 
-test('passed with negative numbers', () => {
-  expect(getSum(-2, -1)).toEqual(-3);
+test('integers of tens value', () => {
+  expect(getSum(20, 30)).toEqual(50);
 });
 
 test('passed with one negative number', () => {
