@@ -31,3 +31,7 @@ test('integers of zero value and one non-zero', () => {
 test('passed with one negative number', () => {
   expect(getSum(2, -1)).toEqual(1);
 });
+
+test('passed with two negative numbers', () => {
+  expect(getSum(-2, -1)).toEqual(-3);
+});
