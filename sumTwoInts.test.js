@@ -24,12 +24,20 @@ test('integers of tens value', () => {
   expect(getSum(20, 30)).toEqual(50);
 });
 
+test('integers of hundreds value', () => {
+  expect(getSum(100, 20)).toEqual(120);
+});
+
 test('integers of zero value and one non-zero', () => {
   expect(getSum(0, 30)).toEqual(30);
 });
 
 test('passed with one negative number', () => {
   expect(getSum(2, -1)).toEqual(1);
+});
+
+test('passed with one negative number', () => {
+  expect(getSum(-2, -4)).toEqual(-6);
 });
 
 test('passed with two negative numbers', () => {
