@@ -10,7 +10,6 @@ const addBits = (a, b) => {
   });
   // if there is a remaining carry to push to the front:
   if (carry && bitSum.length < 8) bitSum.push(carry);
-  console.log(bitSum);
   return bitSum;
 };
 
@@ -35,7 +34,7 @@ const padBits = (num, padBit) => {
 const getNegBinary = num => {
   let aNeg = (-1 * num).toString(2).split('');
   const sum = addOne(padBits(flipIt(aNeg), '1'));
-
+  console.log(sum);
   return sum;
 };
 
@@ -50,17 +49,21 @@ const addOne = num => {
  * returns an array of inverted bits
  **/
 const flipIt = num => {
-  const flipped = num.map(digit => {
-    return digit === '1' ? '0' : '1';
-  });
-  return flipped;
+  return num.map(digit => (digit === '1' ? '0' : '1'));
 };
 
 /**
  * returns twos complement decimal representation of array num
  **/
 const bin2Dec = num => {
-  let decimal = flipIt(num);
+  const isNeg = num[0] === '1';
+  const decimal = parseInt(
+    addOne(flipIt(num))
+      .reverse()
+      .join(''),
+    2
+  );
+  return isNeg ? -1 * decimal : decimal;
 };
 
 /**
@@ -77,14 +80,16 @@ const getSum = (a, b) => {
   // convert numbers to binary arrays
   const aBin =
     a < 0 ? getNegBinary(a) : padBits(a.toString(2).split(''), '0').reverse();
-  const bBin = padBits(b.toString(2).split(''), '0').reverse();
+  const bBin =
+    b < 0 ? getNegBinary(b) : padBits(b.toString(2).split(''), '0').reverse();
 
   const sum = addBits(aBin, bBin).reverse();
-  console.log('sum', sum);
+
   // convert back to twos-complement decimal
+  if (sum[0] === '1') return bin2Dec(sum.join('').split(''));
   return new Number(parseInt(sum.join(''), 2).toString(10));
 };
 
-console.log(getSum(-6, 2));
+console.log(getSum(-6, -2));
 
 module.exports = getSum;
