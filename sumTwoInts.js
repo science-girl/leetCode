@@ -56,6 +56,7 @@ const flipIt = num => {
  * returns twos complement decimal representation of array num
  **/
 const bin2Dec = num => {
+  console.log('bin', num);
   const isNeg = num[0] === '1';
   const decimal = parseInt(
     addOne(flipIt(num))
@@ -84,9 +85,9 @@ const getSum = (a, b) => {
     b < 0 ? getNegBinary(b) : padBits(b.toString(2).split(''), '0').reverse();
 
   const sum = addBits(aBin, bBin).reverse();
-
+  console.log('sum', sum);
   // convert back to twos-complement decimal
-  if (sum[0] === '1') return bin2Dec(sum.join('').split(''));
+  if (sum[0] === 1) return bin2Dec(sum.join('').split(''));
   return new Number(parseInt(sum.join(''), 2).toString(10));
 };
 
